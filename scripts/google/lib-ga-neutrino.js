@@ -1,8 +1,10 @@
-export default function loadGAScript({ sampleRUM, gaId }) {
-  window.setTimeout(() => {
-    const scriptGA = document.createElement('script');
-    scriptGA.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
-    document.head.prepend(scriptGA);
+export default async function loadGAScript({ sampleRUM, gaId }) {
+//  window.setTimeout(() => {
+  await import('./ga.min.js');
+
+/*    const scriptGA = document.createElement('script');
+    scriptGA.src = `//www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.prepend(scriptGA); */
 
     const scriptTag = document.createElement('script');
     scriptTag.innerHTML = `
@@ -13,5 +15,5 @@ export default function loadGAScript({ sampleRUM, gaId }) {
     gtag('config', '${gaId}');
   `;
     document.head.prepend(scriptTag);
-  }, 500);
+  // }, 500);
 }
