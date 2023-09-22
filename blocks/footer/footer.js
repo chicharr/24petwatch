@@ -1,4 +1,4 @@
-import { trackGTMEvent } from '../../scripts/lib-analytics.js';
+// import { trackGTMEvent } from '../../scripts/lib-analytics.js';
 import {
   readBlockConfig,
   decorateIcons,
@@ -21,7 +21,7 @@ function instrumentTrackingEvents(footer) {
         const pageUrl = window.location.href;
         const linkText = (e.target.textContent || '').trim();
         const linkUrl = e.target.href;
-
+        /*
         // track navigation events
         trackGTMEvent('navigation', {
           menu_location: menuLocation,
@@ -45,7 +45,7 @@ function instrumentTrackingEvents(footer) {
           trackGTMEvent('click_to_call', {
             page_url: pageUrl,
           });
-        }
+        } */
       });
     });
 }

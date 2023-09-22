@@ -17,14 +17,14 @@ const rumHandler = {
       target.loadEnhancer();
     }
     // eslint-disable-next-line no-prototype-builtins
-    if (target.hasOwnProperty(prop)) {
+    if (target.hasOwnProperty(prop) || prop === 'baseURL') {
       return target[prop];
     }
     if (this.defers[prop]) {
       return this.defers[prop];
     }
     if (prop === 'drain') {
-      return (...args) => this.drain(target, args[0], args[1]);
+      return (...args) => this.set(target, args[0], args[1]);
     }
     this.defers[prop] = (...deferargs) => {
       this.defercalls.push([prop, deferargs]);
