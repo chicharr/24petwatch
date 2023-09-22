@@ -1,5 +1,5 @@
 export default async function loadGAScript({ sampleRUM, gaId }) {
-//  window.setTimeout(() => {
+  window.setTimeout(() => {
   import('./ga.min.js').then(() => {
 
 /*    const scriptGA = document.createElement('script');
@@ -15,5 +15,5 @@ export default async function loadGAScript({ sampleRUM, gaId }) {
     gtag('config', '${gaId}');
   `;
     document.head.prepend(scriptTag); });
-  // }, 500);
+  }, 500);
 }
