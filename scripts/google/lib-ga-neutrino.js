@@ -15,5 +15,5 @@ export default async function loadGAScript({ sampleRUM, gaId }) {
     gtag('config', '${gaId}');
   `;
     document.head.prepend(scriptTag); });
-  }, 1000);
+  }, 3000);
 }
