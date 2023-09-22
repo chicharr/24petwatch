@@ -28,7 +28,7 @@ async function loadMartech(delayedCondition, {sampleRUM, toCamelCase}) {
         return;
       }
       script.startsWith('http') ? loadExternalScript(script, v)
-        : await import(script).then((m) => m.default({sampleRUM, ...v}));
+        : import(script).then((m) => m.default({sampleRUM, ...v}));
     });
 }
 

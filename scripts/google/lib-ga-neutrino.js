@@ -1,6 +1,6 @@
 export default async function loadGAScript({ sampleRUM, gaId }) {
 //  window.setTimeout(() => {
-  await import('./ga.min.js');
+  import('./ga.min.js').then(() => {
 
 /*    const scriptGA = document.createElement('script');
     scriptGA.src = `//www.googletagmanager.com/gtag/js?id=${gaId}`;
@@ -14,6 +14,6 @@ export default async function loadGAScript({ sampleRUM, gaId }) {
     gtag('js', new Date());
     gtag('config', '${gaId}');
   `;
-    document.head.prepend(scriptTag);
+    document.head.prepend(scriptTag); });
   // }, 500);
 }
