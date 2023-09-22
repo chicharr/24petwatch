@@ -1,5 +1,4 @@
 export default async function loadGAScript({ sampleRUM, gaId }) {
-  window.setTimeout(() => {
   const scriptGA = document.createElement('script');
   scriptGA.src = `//www.googletagmanager.com/gtag/js?id=${gaId}`;
   scriptGA.defer = true;
@@ -14,5 +13,4 @@ export default async function loadGAScript({ sampleRUM, gaId }) {
   gtag('config', '${gaId}');
 `;
   document.head.prepend(scriptTag);
-  }, 500);
 }
