@@ -7,7 +7,7 @@ import {
   isTablet,
   isDesktop,
 } from '../../scripts/lib-franklin.js';
-import { trackGTMEvent } from '../../scripts/lib-analytics.js';
+// import { trackGTMEvent } from '../../scripts/lib-analytics.js';
 
 let positionY = 0;
 const SCROLL_STEP = 25;
@@ -145,7 +145,7 @@ function instrumentTrackingEvents(header) {
         const linkUrl = e.target.href;
         const title = (e.target.title || '').trim();
 
-        // track navigation events
+        /* track navigation events
         trackGTMEvent('navigation', {
           menu_location: menuLocation,
           link_text: linkText,
@@ -163,7 +163,7 @@ function instrumentTrackingEvents(header) {
         // track report lost and found pet
         if (title === 'Report a Lost or Found Pet') {
           trackGTMEvent('pet_lost_found_report_click');
-        }
+        } */
       });
     });
 }
