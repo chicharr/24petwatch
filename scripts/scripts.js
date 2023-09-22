@@ -15,8 +15,10 @@ import {
   loadCSS,
   getMetadata,
   toClassName,
+  toCamelCase,
 } from './lib-franklin.js';
 
+/*
 import {
   analyticsSetConsent,
   createInlineScript,
@@ -26,7 +28,8 @@ import {
   setupAnalyticsTrackingWithGTM,
   analyticsTrackConversion, trackGTMEvent,
 } from './lib-analytics.js';
-
+*/
+import { loadMartechDelayed, loadMartechLazy } from './neutrino.js';
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
 /**
@@ -81,8 +84,8 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
-    createInlineScript(document, document.body, getAlloyInitScript(), 'text/javascript');
-    createInlineScript(document, document.body, getGTMInitScript(), 'text/javascript');
+    //createInlineScript(document, document.body, getAlloyInitScript(), 'text/javascript');
+    //createInlineScript(document, document.body, getGTMInitScript(), 'text/javascript');
     decorateMain(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);
@@ -152,11 +155,14 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
+  loadMartechLazy({sampleRUM, toCamelCase})
+  /*
   await setupAnalyticsTrackingWithAlloy(document);
   await setupAnalyticsTrackingWithGTM();
   analyticsSetConsent(true);
   await initializeConversionTracking();
   instrumentTrackingEvents(main);
+  */
 }
 
 /**
@@ -165,7 +171,10 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  window.setTimeout(() => {
+    import('./delayed.js');
+    loadMartechDelayed({ sampleRUM, toCamelCase });
+  }, 3000);
   // load anything that can be postponed to the latest here
 }
 
