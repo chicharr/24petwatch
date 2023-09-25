@@ -110,14 +110,14 @@ async function initializeConversionTracking() {
     }
     // form tracking related logic should be added here if need be.
     // see https://github.com/adobe/franklin-rum-conversion#integration-with-analytics-solutions
-    analyticsTrackConversion({ ...data });
+    // analyticsTrackConversion({ ...data });
   });
 }
 
 /**
  * instruments the tracking in the main
  * @param {Element} main The main element
- */
+ *
 function instrumentTrackingEvents(main) {
   main.querySelectorAll('a')
     .forEach((anchor) => {
@@ -134,7 +134,7 @@ function instrumentTrackingEvents(main) {
         }
       });
     });
-}
+} */
 
 /**
  * Loads everything that doesn't need to be delayed.
