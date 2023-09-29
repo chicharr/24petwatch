@@ -156,9 +156,9 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
-  import('./google/lib-ga-neutrino.js').then((f) => f.default({ sampleRUM, gaId: 'G-DE6Z8J2M62' }));
+  //import('./google/lib-ga-neutrino.js').then((f) => f.default({ sampleRUM, gaId: 'G-DE6Z8J2M62' }));
 
-  // loadMartechLazy({sampleRUM, toCamelCase})
+   loadMartechLazy({sampleRUM, toCamelCase});
   /*
   await setupAnalyticsTrackingWithAlloy(document);
   await setupAnalyticsTrackingWithGTM();
