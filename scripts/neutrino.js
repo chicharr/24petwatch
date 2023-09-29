@@ -1,6 +1,6 @@
 // TODO path to the config file
 // TODO we shouldn't need to specify the sheets that we want to retrieve
-const FILE_PATH = '/drafts/neutrino/martech.json?sheet=default&sheet=adobe&sheet=ga4';
+const FILE_PATH = '/drafts/neutrino/martech.json?sheet=default&sheet=adobe&sheet=ga4&sheet=gtm';
 
 /**
  * Load the martech configured as non-delayed
