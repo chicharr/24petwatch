@@ -30,7 +30,7 @@ import {
 } from './lib-analytics.js';
 */
 
-//import { loadMartechDelayed, loadMartechLazy } from './neutrino.js';
+import { loadMartechDelayed, loadMartechLazy } from './neutrino.js';
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
 /**
@@ -158,7 +158,7 @@ async function loadLazy(doc) {
 
   //import('./google/lib-ga-neutrino.js').then((f) => f.default({ sampleRUM, gaId: 'G-DE6Z8J2M62' }));
 
-   loadMartechLazy({sampleRUM, toCamelCase});
+  loadMartechLazy({sampleRUM, toCamelCase});
   /*
   await setupAnalyticsTrackingWithAlloy(document);
   await setupAnalyticsTrackingWithGTM();
@@ -176,7 +176,7 @@ function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => {
     import('./delayed.js');
-   // loadMartechDelayed({ sampleRUM, toCamelCase });
+    loadMartechDelayed({ sampleRUM, toCamelCase });
   }, 3000);
   // load anything that can be postponed to the latest here
 }
